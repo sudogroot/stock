@@ -2,8 +2,11 @@ import styled from 'styled-components';
 import plotly from 'plotly.js/dist/plotly';
 import createPlotComponent from 'react-plotly.js/factory';
 import { useState } from 'react';
-import {Button} from 'antd'
-
+import { Select, Radio, Button, DatePicker } from 'antd';
+import {PlotCard} from '../plotCard'
+import {Filters} from './filter'
+import tw from 'twin.macro';
+const { RangePicker } = DatePicker;
 
 const Plot = createPlotComponent(plotly);
 
@@ -18,17 +21,27 @@ export function PlotTest() {
       marker: {color: 'red'},
     }
   )
+  const { Option } = Select;
+
+  function handleChange(value) {
+    console.log(`Selected: ${value}`);
+  }
+
   return (
-    <StyledPage>
+    <PlotCard>
+      <Content>
+        <Filters></Filters>
       <Plot
         data={[
           {...data}
-          // {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
         ]}
-        layout={ {width: 320, height: 240, title: 'A Fancy Plot'} }
+        layout={ {width: '100%', height: '100%', title: 'A Fancy Plot'} }
 
       />
-      <Button onClick={()=>{
+
+
+        <ButtonContainer>
+        <Button onClick={()=>{
         setData({
           x: [4, 6, 8],
           y: [5, 7, 9],
@@ -37,10 +50,18 @@ export function PlotTest() {
           marker: {color: 'red'},
         })
       }}>click me</Button>
-    </StyledPage>
-  );
+        </ButtonContainer>
+      </Content>
+
+
+    </PlotCard>
+    );
 }
 
-const StyledPage = styled.div`
-
+const Content = tw.div`
+flex flex-col w-full
 `;
+
+const ButtonContainer = styled.div`
+`;
+
