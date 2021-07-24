@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import tw from 'twin.macro'
 
 const StyledPage = tw.div`
-bg-black
+w-screen
 `;
 
 const DynamicPlot = dynamic(import('../components/Plot').then(module =>  module.PlotTest), {

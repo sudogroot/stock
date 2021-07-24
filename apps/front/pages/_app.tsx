@@ -3,22 +3,16 @@ import Head from 'next/head';
 import { ReactComponent as NxLogo } from '../public/nx-logo-white.svg';
 import './styles.css';
 import 'antd/dist/antd.compact.css';
-
+import {Layout} from '../components/layout'
 function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to front!</title>
+        <title>Stock demo</title>
       </Head>
-      <div className="app">
-        <header className="flex">
-          <NxLogo width="75" height="50" />
-          <h1>Welcome to front!</h1>
-        </header>
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </div>
+    <Layout>
+    <Component {...pageProps} />
+    </Layout>
     </>
   );
 }
