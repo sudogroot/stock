@@ -1,18 +1,14 @@
-import tw from 'twin.macro'
-import {ReactNode} from 'react'
+import tw from 'twin.macro';
+import { ReactNode } from 'react';
 
-interface  Props {
-  children: ReactNode
+interface Props {
+  children: ReactNode;
 }
 
-export function PlotCard( props : Props) {
-
-
+export function PlotCard(props: Props) {
   return (
     <MainContainer>
-    <Content>
-      {props.children}
-    </Content>
+      <Content>{props.children}</Content>
     </MainContainer>
   );
 }
@@ -22,10 +18,10 @@ const MainContainer = tw.div`
   w-full
   h-full
   shadow-sm
+  justify-center items-center
 `;
-
-
 
 const Content = tw.div`
  flex w-full h-full bg-white
+ justify-center items-center
 `;
