@@ -1,13 +1,9 @@
 import styled from 'styled-components';
-import dynamic from 'next/dynamic'
 import plotly from 'plotly.js/dist/plotly';
 import createPlotComponent from 'react-plotly.js/factory';
 import { useState } from 'react';
+import {Button} from 'antd'
 
-const StyledPage = styled.div`
-  .page {
-  }
-`;
 
 const Plot = createPlotComponent(plotly);
 
@@ -32,7 +28,7 @@ export function PlotTest() {
         layout={ {width: 320, height: 240, title: 'A Fancy Plot'} }
 
       />
-      <button onClick={()=>{
+      <Button onClick={()=>{
         setData({
           x: [4, 6, 8],
           y: [5, 7, 9],
@@ -40,8 +36,11 @@ export function PlotTest() {
           mode: 'lines+markers',
           marker: {color: 'red'},
         })
-      }}>click me</button>
+      }}>click me</Button>
     </StyledPage>
   );
 }
 
+const StyledPage = styled.div`
+
+`;

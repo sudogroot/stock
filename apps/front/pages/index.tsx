@@ -1,8 +1,8 @@
-import styled from 'styled-components';
 import dynamic from 'next/dynamic'
-const StyledPage = styled.div`
-  .page {
-  }
+import tw from 'twin.macro'
+
+const StyledPage = tw.div`
+bg-black
 `;
 
 const DynamicPlot = dynamic(import('../components/Plot').then(module =>  module.PlotTest), {
