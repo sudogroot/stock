@@ -4,12 +4,16 @@
  */
 
  import * as express from 'express';
- import {hello, Test} from './app/api'
+ import {hello, Test, getLinChartFilterOption} from './app/api'
+ import * as cors from 'cors';
+
  const app = express();
+ app.use(cors({ origin: '*', maxAge: 7200 }));
 
 
  app.get("/api/hello", hello);
  app.get("/api/Test", Test);
+ app.get("/api/linefilters", getLinChartFilterOption);
 
 
  const port = process.env.port || 3333;
